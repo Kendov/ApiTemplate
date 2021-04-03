@@ -1,4 +1,6 @@
+using GraphQL.Server.Ui.Voyager;
 using HotChocolate;
+using Microsoft.AspNetCore.Authentication.Certificate;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -27,16 +29,20 @@ namespace MyApp.Api
             services.AddControllers()
             .AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddSwaggerGen();
-            
-            // services.AddDbContext<ApiContext>(options =>
-            //     options.UseNpgsql(Configuration.GetConnectionString("database"))
-            // );
+
+            services.AddPooledDbContextFactory<ApiContext>(options =>
+                options
+                    .UseNpgsql(Configuration.GetConnectionString("database")));
             
 
             services.AddScoped<ICharacterRepository, CharacterRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services
                 .AddGraphQLServer()
+                .AddProjections()
+                .AddFiltering()
+                .AddSorting()
                 .AddQueryType<Query>()
                 .AddMutationType<Mutation>();
             
@@ -50,11 +56,12 @@ namespace MyApp.Api
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseHttpsRedirection();
+
             app.UseSwagger();
             app.UseSwaggerUI(c => {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
-            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
@@ -65,6 +72,10 @@ namespace MyApp.Api
             {
                 endpoints.MapControllers();
                 endpoints.MapGraphQL();
+            });
+
+            app.UseGraphQLVoyager(new VoyagerOptions(){
+                GraphQLEndPoint = "/graphql"
             });
 
         }

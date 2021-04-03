@@ -12,7 +12,9 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "swagger",
+      "applicationUrl": "https://localhost:5001;http://localhost:5000",
+      "workingDirectory": "D:/Users/PC/Documents/Codes/csharp/GraphQL",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -20,9 +22,9 @@
     "MyApp.Api": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "swagger",
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
-      "workingDirectory": "D:/Users/PC/Documents/Codes/csharp/GraphQL/MyApp.Infrastructure",
+      "workingDirectory": "D:/Users/PC/Documents/Codes/csharp/GraphQL",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

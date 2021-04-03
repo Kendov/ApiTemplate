@@ -28,7 +28,7 @@ namespace MyApp.Infrastructure.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Name = table.Column<string>(nullable: true),
-                    Qtd = table.Column<long>(nullable: false),
+                    Qtd = table.Column<int>(nullable: false),
                     CharacterId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>

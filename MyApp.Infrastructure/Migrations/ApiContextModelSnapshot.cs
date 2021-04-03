@@ -50,8 +50,8 @@ namespace MyApp.Infrastructure.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
-                    b.Property<long>("Qtd")
-                        .HasColumnType("bigint");
+                    b.Property<int>("Qtd")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 

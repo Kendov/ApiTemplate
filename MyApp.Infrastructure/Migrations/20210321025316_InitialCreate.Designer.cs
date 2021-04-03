@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MyApp.Infrastructure.Migrations
 {
     [DbContext(typeof(ApiContext))]
-    [Migration("20210214191751_InitialCreate")]
+    [Migration("20210321025316_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,8 +52,8 @@ namespace MyApp.Infrastructure.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
-                    b.Property<long>("Qtd")
-                        .HasColumnType("bigint");
+                    b.Property<int>("Qtd")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 

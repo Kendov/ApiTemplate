@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MyApp.Domain;
+using MyApp.Infrastructure;
 
 namespace MyApp.Api.Controllers
 {
@@ -8,11 +9,13 @@ namespace MyApp.Api.Controllers
     public class CharacterController : ControllerBase
     {
         private readonly ICharacterRepository characterRepository;
-        public CharacterController(ICharacterRepository characterRepository)
+        private readonly IUnitOfWork unitOfWork;
+        public CharacterController(ICharacterRepository characterRepository, IUnitOfWork unitOfWork)
         {
             this.characterRepository = characterRepository;
+            this.unitOfWork = unitOfWork;
         }
-        
+
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -22,8 +25,9 @@ namespace MyApp.Api.Controllers
         [HttpPost]
         public IActionResult Add(Character character)
         {
-            characterRepository.Add(character);
-            return Ok();
+            characterRepository.Insert(character);
+            characterRepository.Commit();
+            return Ok(character);
         }
     }
 }

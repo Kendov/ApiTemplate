@@ -9,7 +9,7 @@ namespace MyApp.Infrastructure.GraphQL
 
         public Task<Character> CreateCharacter([Service]ICharacterRepository characterRepository, Character character)
         {
-            return Task.FromResult(characterRepository.Add(character));
+            return Task.FromResult(characterRepository.Insert(character));
         }
 
     }

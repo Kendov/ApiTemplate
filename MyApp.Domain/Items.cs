@@ -5,6 +5,6 @@ namespace MyApp.Domain
         public int Id { get; set; }
         public string Name { get; set; }
         public int Qtd { get; set; }
-        public virtual Character Character { get; set; }
+        public Character Character { get; set; }
     }
 }
