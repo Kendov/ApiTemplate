@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using MyApp.Domain;
+using MyApp.Domain.Characters;
 using MyApp.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
@@ -8,7 +8,7 @@ namespace MyApp.Infrastructure
 {
     public class CharacterRepository : RepositoryBase<Character>, ICharacterRepository
     {
-        public CharacterRepository(IUnitOfWork unitOfWork) : base(unitOfWork)
+        public CharacterRepository(IUnitOfWork unitOfWork, ApiContext context) : base(unitOfWork, context)
         {
         }
 

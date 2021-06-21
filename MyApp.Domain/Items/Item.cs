@@ -1,6 +1,8 @@
-namespace MyApp.Domain
+using MyApp.Domain.Characters;
+
+namespace MyApp.Domain.Items
 {
-    public class Items
+    public class Item
     {
         public int Id { get; set; }
         public string Name { get; set; }

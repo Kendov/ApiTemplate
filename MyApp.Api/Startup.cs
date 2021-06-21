@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using MyApp.Domain;
+using MyApp.Domain.Characters;
 using MyApp.Infrastructure;
 using MyApp.Infrastructure.Data;
 using MyApp.Infrastructure.GraphQL;
@@ -31,6 +31,10 @@ namespace MyApp.Api
             services.AddSwaggerGen();
 
             services.AddPooledDbContextFactory<ApiContext>(options =>
+                options
+                    .UseNpgsql(Configuration.GetConnectionString("database")));
+            
+            services.AddDbContext<ApiContext>(options =>
                 options
                     .UseNpgsql(Configuration.GetConnectionString("database")));
             

@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using MyApp.Domain;
+using MyApp.Domain.Characters;
 using MyApp.Infrastructure;
 
 namespace MyApp.Api.Controllers
@@ -26,7 +26,7 @@ namespace MyApp.Api.Controllers
         public IActionResult Add(Character character)
         {
             characterRepository.Insert(character);
-            characterRepository.Commit();
+            unitOfWork.Commit();
             return Ok(character);
         }
     }

@@ -17,10 +17,10 @@ namespace MyApp.Infrastructure
 
         internal DbSet<TEntity> Dbset { get => _dbSet; }
 
-        public RepositoryBase(IUnitOfWork unitOfWork)
+        public RepositoryBase(IUnitOfWork unitOfWork, ApiContext context)
         {
-            _context = unitOfWork.Context;
-            _dbSet = unitOfWork.Context.Set<TEntity>();
+            _context = context;
+            _dbSet = context.Set<TEntity>();
         }
 
         public virtual IEnumerable<TEntity> Get(

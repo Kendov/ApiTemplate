@@ -1,4 +1,4 @@
-namespace MyApp.Domain
+namespace MyApp.Domain.Characters
 {
     public enum CharacterClass
     {

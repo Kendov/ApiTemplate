@@ -7,11 +7,9 @@ namespace MyApp.Infrastructure
     {
         private readonly ApiContext _context;
 
-        public ApiContext Context { get => _context; }
-
-        public UnitOfWork(IDbContextFactory<ApiContext> context)
+        public UnitOfWork(ApiContext context)
         {
-            _context = context.CreateDbContext();
+            _context = context;
         }
 
         public void Commit()

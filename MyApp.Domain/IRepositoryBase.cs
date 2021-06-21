@@ -7,7 +7,6 @@ namespace MyApp.Domain
 {
     public interface IRepositoryBase <TEntity> where TEntity : class
     {
-        void Commit();
         void Delete(object id);
         void Delete(TEntity obj);
         void Dispose();
