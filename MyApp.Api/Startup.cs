@@ -1,5 +1,7 @@
+using System;
 using GraphQL.Server.Ui.Voyager;
 using HotChocolate;
+using MediatR;
 using Microsoft.AspNetCore.Authentication.Certificate;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -7,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MyApp.Domain;
 using MyApp.Domain.Characters;
 using MyApp.Infrastructure;
 using MyApp.Infrastructure.Data;
@@ -33,11 +36,13 @@ namespace MyApp.Api
             services.AddPooledDbContextFactory<ApiContext>(options =>
                 options
                     .UseNpgsql(Configuration.GetConnectionString("database")));
-            
+
             services.AddDbContext<ApiContext>(options =>
                 options
                     .UseNpgsql(Configuration.GetConnectionString("database")));
-            
+
+            services.AddMediatR(typeof(DomainEntrypoint).Assembly);
+
 
             services.AddScoped<ICharacterRepository, CharacterRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -49,7 +54,7 @@ namespace MyApp.Api
                 .AddSorting()
                 .AddQueryType<Query>()
                 .AddMutationType<Mutation>();
-            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,7 +68,8 @@ namespace MyApp.Api
             app.UseHttpsRedirection();
 
             app.UseSwagger();
-            app.UseSwaggerUI(c => {
+            app.UseSwaggerUI(c =>
+            {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
 
@@ -78,7 +84,8 @@ namespace MyApp.Api
                 endpoints.MapGraphQL();
             });
 
-            app.UseGraphQLVoyager(new VoyagerOptions(){
+            app.UseGraphQLVoyager(new VoyagerOptions()
+            {
                 GraphQLEndPoint = "/graphql"
             });
 

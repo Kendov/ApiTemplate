@@ -1,0 +1,17 @@
+{
+    "csharp.format.enable": true,
+
+    "[csharp]": {
+        "editor.formatOnSave": true
+    },
+
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/bin": true,
+        "**/obj": true
+    }
+}

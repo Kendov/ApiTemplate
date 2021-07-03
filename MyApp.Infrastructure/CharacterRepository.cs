@@ -3,6 +3,7 @@ using MyApp.Domain.Characters;
 using MyApp.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using MyApp.Domain;
 
 namespace MyApp.Infrastructure
 {

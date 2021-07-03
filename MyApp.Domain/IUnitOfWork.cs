@@ -1,6 +1,5 @@
-using MyApp.Infrastructure.Data;
 
-namespace MyApp.Infrastructure
+namespace MyApp.Domain
 {
     public interface IUnitOfWork
     {

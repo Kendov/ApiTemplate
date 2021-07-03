@@ -4,6 +4,7 @@
     <ProjectReference Include="..\MyApp.Infrastructure\MyApp.Infrastructure.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Certificate" Version="5.0.4" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.4" />

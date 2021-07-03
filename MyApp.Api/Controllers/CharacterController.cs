@@ -1,5 +1,9 @@
+using System.Threading.Tasks;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using MyApp.Domain;
 using MyApp.Domain.Characters;
+using MyApp.Domain.Characters.Commands;
 using MyApp.Infrastructure;
 
 namespace MyApp.Api.Controllers
@@ -8,26 +12,24 @@ namespace MyApp.Api.Controllers
     [Route("v1/[Controller]")]
     public class CharacterController : ControllerBase
     {
-        private readonly ICharacterRepository characterRepository;
-        private readonly IUnitOfWork unitOfWork;
-        public CharacterController(ICharacterRepository characterRepository, IUnitOfWork unitOfWork)
+        private readonly IMediator _mediator;
+        public CharacterController(IMediator mediator)
         {
-            this.characterRepository = characterRepository;
-            this.unitOfWork = unitOfWork;
+            _mediator = mediator;
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            return Ok(characterRepository.CustomFindAll());
+            var command = await _mediator.Send(new ListCharactersQuery());
+            return Ok(command);
         }
 
         [HttpPost]
-        public IActionResult Add(Character character)
+        public async Task<IActionResult> Add(CreateCharacterCommand command)
         {
-            characterRepository.Insert(character);
-            unitOfWork.Commit();
-            return Ok(character);
+            var result = await _mediator.Send(command);
+            return Ok(result);
         }
     }
 }
