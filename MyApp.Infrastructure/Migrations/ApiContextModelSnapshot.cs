@@ -15,40 +15,42 @@ namespace MyApp.Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
-                .HasAnnotation("ProductVersion", "3.1.12")
-                .HasAnnotation("Relational:MaxIdentifierLength", 63);
+                .HasAnnotation("Relational:MaxIdentifierLength", 63)
+                .HasAnnotation("ProductVersion", "5.0.7")
+                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-            modelBuilder.Entity("MyApp.Domain.Character", b =>
+            modelBuilder.Entity("MyApp.Domain.Characters.Character", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn);
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<int>("Class")
                         .HasColumnType("integer");
 
                     b.Property<string>("Name")
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Characters");
                 });
 
-            modelBuilder.Entity("MyApp.Domain.Items", b =>
+            modelBuilder.Entity("MyApp.Domain.Items.Item", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn);
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<int?>("CharacterId")
                         .HasColumnType("integer");
 
                     b.Property<string>("Name")
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<int>("Qtd")
                         .HasColumnType("integer");
@@ -60,11 +62,18 @@ namespace MyApp.Infrastructure.Migrations
                     b.ToTable("Items");
                 });
 
-            modelBuilder.Entity("MyApp.Domain.Items", b =>
+            modelBuilder.Entity("MyApp.Domain.Items.Item", b =>
                 {
-                    b.HasOne("MyApp.Domain.Character", "Character")
+                    b.HasOne("MyApp.Domain.Characters.Character", "Character")
                         .WithMany("Items")
                         .HasForeignKey("CharacterId");
+
+                    b.Navigation("Character");
+                });
+
+            modelBuilder.Entity("MyApp.Domain.Characters.Character", b =>
+                {
+                    b.Navigation("Items");
                 });
 #pragma warning restore 612, 618
         }

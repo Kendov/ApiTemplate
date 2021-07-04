@@ -4,8 +4,9 @@ using MyApp.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using MyApp.Domain;
+using MyApp.Domain.Items;
 
-namespace MyApp.Infrastructure
+namespace MyApp.Infrastructure.Repositories
 {
     public class CharacterRepository : RepositoryBase<Character>, ICharacterRepository
     {
@@ -13,10 +14,9 @@ namespace MyApp.Infrastructure
         {
         }
 
-        public IEnumerable<Character> CustomFindAll(){
-            var test = Dbset.ToList();
-            
-            return test;
+        public IEnumerable<Character> CustomFindAll()
+        {
+            return Dbset;
         }
     }
 }

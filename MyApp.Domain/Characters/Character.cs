@@ -9,5 +9,7 @@ namespace MyApp.Domain.Characters
         public string Name { get; set; }
         public CharacterClass Class { get; set; }
         public ICollection<Item> Items { get; set; }
+
+        public string Title => $"{Name} the {Class.ToString("g")}";
     }
 }

@@ -2,7 +2,6 @@ using System;
 using GraphQL.Server.Ui.Voyager;
 using HotChocolate;
 using MediatR;
-using Microsoft.AspNetCore.Authentication.Certificate;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +13,7 @@ using MyApp.Domain.Characters;
 using MyApp.Infrastructure;
 using MyApp.Infrastructure.Data;
 using MyApp.Infrastructure.GraphQL;
+using MyApp.Infrastructure.Repositories;
 
 namespace MyApp.Api
 {

@@ -31,5 +31,12 @@ namespace MyApp.Api.Controllers
             var result = await _mediator.Send(command);
             return Ok(result);
         }
+
+        // [HttpPost]
+        // public async Task<IActionResult> Add( command)
+        // {
+        //     var result = await _mediator.Send(command);
+        //     return Ok(result);
+        // }
     }
 }
