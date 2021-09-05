@@ -11,7 +11,6 @@ using Microsoft.Extensions.Hosting;
 using MyApp.Domain;
 using MyApp.Domain.Characters;
 using MyApp.Infrastructure;
-using MyApp.Infrastructure.Data;
 using MyApp.Infrastructure.GraphQL;
 using MyApp.Infrastructure.Repositories;
 
@@ -35,7 +34,9 @@ namespace MyApp.Api
 
             services.AddPooledDbContextFactory<ApiContext>(options =>
                 options
-                    .UseNpgsql(Configuration.GetConnectionString("database")));
+                    .UseNpgsql(
+                        Configuration.GetConnectionString("database")
+                    ));
 
             services.AddDbContext<ApiContext>(options =>
                 options
@@ -50,10 +51,10 @@ namespace MyApp.Api
             services
                 .AddGraphQLServer()
                 .AddProjections()
-                .AddFiltering()
-                .AddSorting()
-                .AddQueryType<Query>()
-                .AddMutationType<Mutation>();
+                //.AddFiltering()
+                //.AddSorting()
+                .AddQueryType<Query>();
+            //.AddMutationType<Mutation>();
 
         }
 

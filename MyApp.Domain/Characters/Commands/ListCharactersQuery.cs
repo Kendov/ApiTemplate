@@ -21,7 +21,7 @@ namespace MyApp.Domain.Characters.Commands
 
         Task<IEnumerable<Character>> IRequestHandler<ListCharactersQuery, IEnumerable<Character>>.Handle(ListCharactersQuery request, CancellationToken cancellationToken)
         {
-            return Task.FromResult(_repository.Get(includeProperties: "Items"));
+            return Task.FromResult(_repository.FindAll());
         }
     }
 }

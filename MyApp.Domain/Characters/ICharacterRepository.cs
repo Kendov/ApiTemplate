@@ -4,6 +4,6 @@ namespace MyApp.Domain.Characters
 {
     public interface ICharacterRepository : IRepositoryBase<Character>
     {
-        IEnumerable<Character> CustomFindAll();
+        IEnumerable<Character> FindAll();
     }
 }

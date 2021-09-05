@@ -1,10 +1,7 @@
 using System.Collections.Generic;
 using MyApp.Domain.Characters;
-using MyApp.Infrastructure.Data;
-using Microsoft.EntityFrameworkCore;
-using System.Linq;
 using MyApp.Domain;
-using MyApp.Domain.Items;
+using Microsoft.EntityFrameworkCore;
 
 namespace MyApp.Infrastructure.Repositories
 {
@@ -14,9 +11,9 @@ namespace MyApp.Infrastructure.Repositories
         {
         }
 
-        public IEnumerable<Character> CustomFindAll()
+        public IEnumerable<Character> FindAll()
         {
-            return Dbset;
+            return Dbset.Include(c => c.Items);
         }
     }
 }

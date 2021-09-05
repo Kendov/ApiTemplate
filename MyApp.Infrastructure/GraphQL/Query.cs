@@ -1,7 +1,6 @@
 using HotChocolate;
 using HotChocolate.Data;
 using MyApp.Domain.Characters;
-using MyApp.Infrastructure.Data;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -12,12 +11,10 @@ namespace MyApp.Infrastructure.GraphQL
     {
         [UseDbContext(typeof(ApiContext))]
         [UseProjection]
-        [UseFiltering]
-        [UseSorting]
         public IQueryable<Character> AllCharacters([ScopedService] ApiContext repository) => repository.Characters;
 
         [UseDbContext(typeof(ApiContext))]
-        public IEnumerable<Character> AllCharactersFromRepo([Service] ICharacterRepository characterRepository) => characterRepository.Get();
+        public IEnumerable<Character> AllCharactersFromRepo([Service] ICharacterRepository characterRepository) => characterRepository.FindAll();
 
         public Character GetCharacter() =>
             new Character

@@ -24,13 +24,12 @@ namespace MyApp.Domain.Characters.Handlers
             {
                 Class = request.Class,
                 Items = request.Items.Select(x =>
-                        new Item
-                        {
-                            Name = x.Name,
-                            Qtd = x.Qtd
-                        }
-                    )
-                    .ToList(),
+                    new Item
+                    {
+                        Name = x.Name,
+                        Qtd = x.Qtd
+                    }
+                ).ToList(),
                 Name = request.Name
             };
 

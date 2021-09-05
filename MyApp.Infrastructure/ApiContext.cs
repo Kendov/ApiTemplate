@@ -1,10 +1,9 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using MyApp.Domain.Characters;
 using MyApp.Domain.Items;
 using MyApp.Infrastructure.Mapping;
 
-namespace MyApp.Infrastructure.Data
+namespace MyApp.Infrastructure
 {
     public class ApiContext : DbContext
     {

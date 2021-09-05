@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using MyApp.Domain;
-using MyApp.Infrastructure.Data;
 
 namespace MyApp.Infrastructure
 {
