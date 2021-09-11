@@ -2,10 +2,12 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using MyApp.Domain.Characters.Commands;
+using MyApp.Application.Characters.Commands;
+using MyApp.Domain;
+using MyApp.Domain.Characters;
 using MyApp.Domain.Items;
 
-namespace MyApp.Domain.Characters.Handlers
+namespace MyApp.Application.CreateCharacters.commands
 {
     public class CreateCharacterCommandHandler : IRequestHandler<CreateCharacterCommand, Character>
     {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using MyApp.Domain;
+using MyApp.Infrastructure.Data;
 
 namespace MyApp.Infrastructure
 {
@@ -11,12 +12,12 @@ namespace MyApp.Infrastructure
     public abstract class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : BaseEntity
     {
         private DbSet<TEntity> _dbSet;
-        private ApiContext _context;
+        private AppDbContext _context;
         private bool disposedValue;
 
         internal DbSet<TEntity> Dbset { get => _dbSet; }
 
-        public RepositoryBase(IUnitOfWork unitOfWork, ApiContext context)
+        public RepositoryBase(IUnitOfWork unitOfWork, AppDbContext context)
         {
             _context = context;
             _dbSet = context.Set<TEntity>();

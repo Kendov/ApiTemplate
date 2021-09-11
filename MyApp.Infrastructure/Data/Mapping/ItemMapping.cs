@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using MyApp.Domain.Items;
 
-namespace MyApp.Infrastructure.Mapping
+namespace MyApp.Infrastructure.Data.Mapping
 {
     public class ItemMapping : IEntityTypeConfiguration<Item>
     {

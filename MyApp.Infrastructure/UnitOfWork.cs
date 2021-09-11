@@ -1,13 +1,14 @@
 using Microsoft.EntityFrameworkCore;
 using MyApp.Domain;
+using MyApp.Infrastructure.Data;
 
 namespace MyApp.Infrastructure
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly ApiContext _context;
+        private readonly AppDbContext _context;
 
-        public UnitOfWork(ApiContext context)
+        public UnitOfWork(AppDbContext context)
         {
             _context = context;
         }

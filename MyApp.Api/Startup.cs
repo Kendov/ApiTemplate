@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using MyApp.Domain;
 using MyApp.Domain.Characters;
 using MyApp.Infrastructure;
+using MyApp.Infrastructure.Data;
 using MyApp.Infrastructure.GraphQL;
 using MyApp.Infrastructure.Repositories;
 
@@ -32,13 +33,13 @@ namespace MyApp.Api
             .AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddSwaggerGen();
 
-            services.AddPooledDbContextFactory<ApiContext>(options =>
+            services.AddPooledDbContextFactory<AppDbContext>(options =>
                 options
                     .UseNpgsql(
                         Configuration.GetConnectionString("database")
                     ));
 
-            services.AddDbContext<ApiContext>(options =>
+            services.AddDbContext<AppDbContext>(options =>
                 options
                     .UseNpgsql(Configuration.GetConnectionString("database")));
 

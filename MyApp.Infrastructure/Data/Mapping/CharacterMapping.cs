@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using MyApp.Domain.Characters;
 using MyApp.Domain.Items;
 
-namespace MyApp.Infrastructure.Mapping
+namespace MyApp.Infrastructure.Data.Mapping
 {
     public class CharacterMapping : IEntityTypeConfiguration<Character>
     {

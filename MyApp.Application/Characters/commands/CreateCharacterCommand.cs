@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using MediatR;
+using MyApp.Domain.Characters;
 
-namespace MyApp.Domain.Characters.Commands
+namespace MyApp.Application.Characters.Commands
 {
     public class CreateCharacterCommand : IRequest<Character>
     {

@@ -1,10 +1,8 @@
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using MyApp.Domain;
-using MyApp.Domain.Characters;
-using MyApp.Domain.Characters.Commands;
-using MyApp.Infrastructure;
+using MyApp.Application.Characters.Commands;
+using MyApp.Domain.Characters.Queries;
 
 namespace MyApp.Api.Controllers
 {
@@ -19,10 +17,10 @@ namespace MyApp.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery] ListCharactersQuery command)
         {
-            var command = await _mediator.Send(new ListCharactersQuery());
-            return Ok(command);
+            var result = await _mediator.Send(command);
+            return Ok(result);
         }
 
         [HttpPost]

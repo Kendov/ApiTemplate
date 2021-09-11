@@ -1,17 +1,17 @@
 using Microsoft.EntityFrameworkCore;
 using MyApp.Domain.Characters;
 using MyApp.Domain.Items;
-using MyApp.Infrastructure.Mapping;
+using MyApp.Infrastructure.Data.Mapping;
 
-namespace MyApp.Infrastructure
+namespace MyApp.Infrastructure.Data
 {
-    public class ApiContext : DbContext
+    public class AppDbContext : DbContext
     {
 
         public DbSet<Character> Characters { get; set; }
         public DbSet<Item> Items { get; set; }
 
-        public ApiContext(DbContextOptions<ApiContext> options) : base(options)
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }
 
