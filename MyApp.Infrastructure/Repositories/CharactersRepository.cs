@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using MyApp.Domain.Characters;
-using MyApp.Domain;
 using Microsoft.EntityFrameworkCore;
 using MyApp.Infrastructure.Data;
 
