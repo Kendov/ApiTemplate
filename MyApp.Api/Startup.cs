@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MyApp.Application;
 using MyApp.Domain;
 using MyApp.Domain.Characters;
 using MyApp.Infrastructure;
+using MyApp.Infrastructure.Bootstrap;
 using MyApp.Infrastructure.Data;
 using MyApp.Infrastructure.GraphQL;
 using MyApp.Infrastructure.Repositories;
@@ -29,34 +31,8 @@ namespace MyApp.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers()
-            .AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
-            services.AddSwaggerGen();
-
-            services.AddPooledDbContextFactory<AppDbContext>(options =>
-                options
-                    .UseNpgsql(
-                        Configuration.GetConnectionString("database")
-                    ));
-
-            services.AddDbContext<AppDbContext>(options =>
-                options
-                    .UseNpgsql(Configuration.GetConnectionString("database")));
-
-            services.AddMediatR(typeof(DomainEntrypoint).Assembly);
-
-
-            services.AddScoped<ICharacterRepository, CharacterRepository>();
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-
-            services
-                .AddGraphQLServer()
-                .AddProjections()
-                //.AddFiltering()
-                //.AddSorting()
-                .AddQueryType<Query>();
-            //.AddMutationType<Mutation>();
-
+            services.AddConfigurations(Configuration);
+            services.AddRepositories();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

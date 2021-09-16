@@ -1,7 +1,10 @@
+using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using MyApp.Application.Characters.Commands;
+using MyApp.CrossCutting;
+using MyApp.Domain.Characters;
 using MyApp.Domain.Characters.Queries;
 
 namespace MyApp.Api.Controllers

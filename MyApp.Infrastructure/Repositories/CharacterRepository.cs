@@ -8,7 +8,7 @@ namespace MyApp.Infrastructure.Repositories
 {
     public class CharacterRepository : RepositoryBase<Character>, ICharacterRepository
     {
-        public CharacterRepository(IUnitOfWork unitOfWork, AppDbContext context) : base(unitOfWork, context)
+        public CharacterRepository(AppDbContext context) : base(context)
         {
         }
 

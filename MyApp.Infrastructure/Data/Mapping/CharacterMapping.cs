@@ -9,6 +9,7 @@ namespace MyApp.Infrastructure.Data.Mapping
     {
         public void Configure(EntityTypeBuilder<Character> builder)
         {
+            builder.ToTable("characters");
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Name)
                 .HasMaxLength(100)

@@ -12,7 +12,6 @@ namespace MyApp.Application.Characters.Commands
 
         public class ItemDTO
         {
-            public int Id { get; set; }
             public string Name { get; set; }
             public int Qtd { get; set; }
 

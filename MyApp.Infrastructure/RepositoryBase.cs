@@ -17,7 +17,7 @@ namespace MyApp.Infrastructure
 
         internal DbSet<TEntity> Dbset { get => _dbSet; }
 
-        public RepositoryBase(IUnitOfWork unitOfWork, AppDbContext context)
+        public RepositoryBase(AppDbContext context)
         {
             _context = context;
             _dbSet = context.Set<TEntity>();

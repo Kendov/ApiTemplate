@@ -8,6 +8,7 @@ namespace MyApp.Infrastructure.Data.Mapping
     {
         public void Configure(EntityTypeBuilder<Item> builder)
         {
+            builder.ToTable("items");
             builder.Property(x => x.Name)
                 .HasMaxLength(100)
                 .HasColumnType("varchar(100)");

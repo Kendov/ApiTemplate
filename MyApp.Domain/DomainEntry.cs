@@ -1,7 +1,6 @@
 namespace MyApp.Domain
 {
-    public class DomainEntrypoint
+    public class DomainEntryPoint
     {
-
     }
 }
