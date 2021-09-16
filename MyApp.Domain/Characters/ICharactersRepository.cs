@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace MyApp.Domain.Characters
 {
-    public interface ICharacterRepository : IRepositoryBase<Character>
+    public interface ICharactersRepository : IRepositoryBase<Character>
     {
         IEnumerable<Character> FindAll();
     }

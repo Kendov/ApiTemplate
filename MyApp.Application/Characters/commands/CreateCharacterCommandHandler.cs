@@ -11,10 +11,10 @@ namespace MyApp.Application.CreateCharacters.commands
 {
     public class CreateCharacterCommandHandler : IRequestHandler<CreateCharacterCommand, Character>
     {
-        private readonly ICharacterRepository _characterRepository;
+        private readonly ICharactersRepository _characterRepository;
         private readonly IUnitOfWork _unityOfWorks;
 
-        public CreateCharacterCommandHandler(ICharacterRepository characterRepository, IUnitOfWork unityOfWorks)
+        public CreateCharacterCommandHandler(ICharactersRepository characterRepository, IUnitOfWork unityOfWorks)
         {
             _characterRepository = characterRepository;
             _unityOfWorks = unityOfWorks;

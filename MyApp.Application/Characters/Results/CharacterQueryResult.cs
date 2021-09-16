@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using MyApp.Application.Items.Results;
 using MyApp.CrossCutting;
 using MyApp.Domain.Characters;
 using MyApp.Domain.Items;

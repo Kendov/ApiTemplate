@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using MyApp.Application.Characters.Results;
+using MyApp.Application.Items.Results;
 using MyApp.CrossCutting;
 using MyApp.CrossCutting.Extensions;
 
@@ -10,9 +11,9 @@ namespace MyApp.Domain.Characters.Queries
 {
     public class ListCharactersQueryHandler : IRequestHandler<ListCharactersQuery, FilteredResult<CharacterQueryResult>>
     {
-        private readonly ICharacterRepository _repository;
+        private readonly ICharactersRepository _repository;
 
-        public ListCharactersQueryHandler(ICharacterRepository repository)
+        public ListCharactersQueryHandler(ICharactersRepository repository)
         {
             _repository = repository;
         }

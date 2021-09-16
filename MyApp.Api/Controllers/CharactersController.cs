@@ -11,10 +11,10 @@ namespace MyApp.Api.Controllers
 {
     [ApiController]
     [Route("v1/[Controller]")]
-    public class CharacterController : ControllerBase
+    public class CharactersController : ControllerBase
     {
         private readonly IMediator _mediator;
-        public CharacterController(IMediator mediator)
+        public CharactersController(IMediator mediator)
         {
             _mediator = mediator;
         }

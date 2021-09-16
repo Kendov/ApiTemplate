@@ -9,6 +9,7 @@ namespace MyApp.Domain
     {
         void Delete(object id);
         void Delete(TEntity obj);
+        IEnumerable<TEntity> Get();
         TEntity GetByID(object id);
         TEntity Insert(TEntity obj);
         void Update(TEntity obj);

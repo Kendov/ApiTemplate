@@ -1,4 +1,4 @@
-namespace MyApp.Application.Characters.Results
+namespace MyApp.Application.Items.Results
 {
     public class ItemQueryResult
     {

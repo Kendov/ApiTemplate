@@ -23,6 +23,11 @@ namespace MyApp.Infrastructure
             _dbSet = context.Set<TEntity>();
         }
 
+        public virtual IEnumerable<TEntity> Get()
+        {
+            return _dbSet;
+        }
+
         public virtual TEntity GetByID(object id)
         {
             return _dbSet.Find(id);

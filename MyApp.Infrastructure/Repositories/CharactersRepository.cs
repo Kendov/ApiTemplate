@@ -6,9 +6,9 @@ using MyApp.Infrastructure.Data;
 
 namespace MyApp.Infrastructure.Repositories
 {
-    public class CharacterRepository : RepositoryBase<Character>, ICharacterRepository
+    public class CharactersRepository : RepositoryBase<Character>, ICharactersRepository
     {
-        public CharacterRepository(AppDbContext context) : base(context)
+        public CharactersRepository(AppDbContext context) : base(context)
         {
         }
 

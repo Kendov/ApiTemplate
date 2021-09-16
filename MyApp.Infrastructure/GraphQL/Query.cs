@@ -25,7 +25,7 @@ namespace MyApp.Infrastructure.GraphQL
                 Name = "zurik"
             };
 
-        public Character GetCharacterById([Service] ICharacterRepository characterRepository, int id)
+        public Character GetCharacterById([Service] ICharactersRepository characterRepository, int id)
         {
             Character gottenEmployee = characterRepository.GetByID(id);
             return gottenEmployee;
