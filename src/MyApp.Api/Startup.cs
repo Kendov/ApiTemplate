@@ -1,21 +1,10 @@
-using System;
 using GraphQL.Server.Ui.Voyager;
-using HotChocolate;
-using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using MyApp.Application;
-using MyApp.Domain;
-using MyApp.Domain.Characters;
-using MyApp.Infrastructure;
 using MyApp.Infrastructure.Bootstrap;
-using MyApp.Infrastructure.Data;
-using MyApp.Infrastructure.GraphQL;
-using MyApp.Infrastructure.Repositories;
 
 namespace MyApp.Api
 {
