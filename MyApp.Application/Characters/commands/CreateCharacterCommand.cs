@@ -8,13 +8,6 @@ namespace MyApp.Application.Characters.Commands
     {
         public string Name { get; set; }
         public CharacterClass Class { get; set; }
-        public ICollection<ItemDTO> Items { get; set; }
-
-        public class ItemDTO
-        {
-            public string Name { get; set; }
-            public int Qtd { get; set; }
-
-        }
+        public ICollection<long> Items { get; set; }
     }
 }
