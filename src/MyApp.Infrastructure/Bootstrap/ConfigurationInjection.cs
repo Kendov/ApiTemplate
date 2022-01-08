@@ -3,8 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MyApp.Application;
-using MyApp.Domain;
-using MyApp.Infrastructure;
 using MyApp.Infrastructure.Data;
 using MyApp.Infrastructure.GraphQL;
 
@@ -30,6 +28,7 @@ namespace MyApp.Infrastructure.Bootstrap
 
 
             services.AddMediatR(typeof(ApplicationEntryPoint).Assembly);
+            services.AddSignalR();
 
 
             services
