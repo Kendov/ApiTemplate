@@ -18,10 +18,15 @@ namespace MyApp.Infrastructure.Bootstrap
             .AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddSwaggerGen();
 
+            // services.AddDbContextPool<AppDbContext>(options =>
+            //     options.UseNpgsql(
+            //             configuration.GetConnectionString("database")
+            //         ).UseSnakeCaseNamingConvention());
+
             services.AddDbContextPool<AppDbContext>(options =>
-                options.UseNpgsql(
+                options.UseSqlServer(
                         configuration.GetConnectionString("database")
-                    ).UseSnakeCaseNamingConvention());
+                    ));
 
             // services.AddDbContext<AppDbContext>(options =>
             //     options
