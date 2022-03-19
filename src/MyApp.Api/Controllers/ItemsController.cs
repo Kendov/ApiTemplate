@@ -1,8 +1,10 @@
+using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using MyApp.Application.Items.Commands;
 using MyApp.Application.Items.Queries;
+using MyApp.Infrastructure.Data;
 
 namespace MyApp.Api.Controllers
 {

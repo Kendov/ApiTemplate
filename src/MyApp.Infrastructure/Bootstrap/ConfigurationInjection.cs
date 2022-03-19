@@ -23,15 +23,15 @@ namespace MyApp.Infrastructure.Bootstrap
             //             configuration.GetConnectionString("database")
             //         ).UseSnakeCaseNamingConvention());
 
-            services.AddDbContextPool<AppDbContext>(options =>
-                options.UseSqlServer(
-                        configuration.GetConnectionString("database")
-                    ));
+            // services.AddDbContextPool<StackOverflow2010Context>(options =>
+            //     options.UseSqlServer(
+            //             configuration.GetConnectionString("sqlServerdatabase")
+            //         ));
 
-            // services.AddDbContext<AppDbContext>(options =>
-            //     options
-            //         .UseNpgsql(configuration.GetConnectionString("database"))
-            //         .UseSnakeCaseNamingConvention());
+            services.AddDbContext<AppDbContext>(options =>
+                options
+                    .UseNpgsql(configuration.GetConnectionString("database"))
+                    .UseSnakeCaseNamingConvention());
 
 
             services.AddMediatR(typeof(ApplicationEntryPoint).Assembly);

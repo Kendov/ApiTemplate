@@ -4,7 +4,7 @@ namespace MyApp.CrossCutting
 {
     public class FilteredResult<T>
     {
-        public int Total { get; set; }
+        public long Total { get; set; }
         public IEnumerable<T> Result { get; set; }
     }
 }
