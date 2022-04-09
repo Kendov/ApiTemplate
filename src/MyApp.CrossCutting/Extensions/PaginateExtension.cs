@@ -14,7 +14,7 @@ namespace MyApp.CrossCutting.Extensions
 
             return new FilteredResult<T>
             {
-                Total = result.Count(),
+                Total = item.Count(),
                 Result = result
             };
         }
