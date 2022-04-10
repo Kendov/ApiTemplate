@@ -2,14 +2,13 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using MyApp.Application.Characters.Results;
 using MyApp.Application.Items.Results;
 using MyApp.CrossCutting;
 using MyApp.CrossCutting.Extensions;
 
 namespace MyApp.Domain.Characters.Queries
 {
-    public class ListCharactersQueryHandler : IRequestHandler<ListCharactersQuery, FilteredResult<CharacterQueryResult>>
+    public class ListCharactersQueryHandler : IRequestHandler<ListCharactersQuery, FilteredResult<ListCharactersQueryResult>>
     {
         private readonly ICharactersRepository _repository;
 
@@ -18,11 +17,11 @@ namespace MyApp.Domain.Characters.Queries
             _repository = repository;
         }
 
-        Task<FilteredResult<CharacterQueryResult>> IRequestHandler<ListCharactersQuery, FilteredResult<CharacterQueryResult>>.Handle(ListCharactersQuery request, CancellationToken cancellationToken)
+        Task<FilteredResult<ListCharactersQueryResult>> IRequestHandler<ListCharactersQuery, FilteredResult<ListCharactersQueryResult>>.Handle(ListCharactersQuery request, CancellationToken cancellationToken)
         {
             var result = _repository
                 .FindAll()
-                .Select(x => new CharacterQueryResult
+                .Select(x => new ListCharactersQueryResult
                 {
                     Id = x.Id,
                     Name = x.Name,

@@ -5,9 +5,9 @@ using MyApp.CrossCutting;
 using MyApp.Domain.Characters;
 using MyApp.Domain.Items;
 
-namespace MyApp.Application.Characters.Results
+namespace MyApp.Domain.Characters.Queries
 {
-    public class CharacterQueryResult
+    public class ListCharactersQueryResult
     {
         public long Id { get; set; }
         public string Name { get; set; }
