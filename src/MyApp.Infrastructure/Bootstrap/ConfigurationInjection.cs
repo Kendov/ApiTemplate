@@ -1,3 +1,4 @@
+using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -15,7 +16,8 @@ namespace MyApp.Infrastructure.Bootstrap
         public static void AddConfigurations(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddControllers()
-            .AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+            .AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
+            .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<ApplicationEntryPoint>());
             services.AddSwaggerGen();
 
             services.AddDbContextPool<AppDbContext>(options =>
