@@ -33,6 +33,7 @@ namespace MyApp.Api
             }
 
             app.UseHttpsRedirection();
+            app.UseHsts();
 
             app.UseSwagger();
             app.UseSwaggerUI(c =>
