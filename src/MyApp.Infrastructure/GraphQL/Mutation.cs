@@ -4,7 +4,7 @@ using MyApp.Domain.Characters;
 
 namespace MyApp.Infrastructure.GraphQL
 {
-    public class Mutation
+    internal class Mutation
     {
 
         // public Task<Character> CreateCharacter([Service]ICharacterRepository characterRepository, Character character)

@@ -9,7 +9,7 @@ using MyApp.Infrastructure.Data;
 namespace MyApp.Infrastructure
 {
 
-    public abstract class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : BaseEntity
+    internal abstract class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : BaseEntity
     {
         private DbSet<TEntity> _dbSet;
         private AppDbContext _context;

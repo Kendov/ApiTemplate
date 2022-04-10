@@ -8,7 +8,7 @@ using System.Linq;
 namespace MyApp.Infrastructure.GraphQL
 {
 
-    public class Query
+    internal class Query
     {
         [UseDbContext(typeof(AppDbContext))]
         [UseProjection]

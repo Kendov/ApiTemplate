@@ -5,7 +5,7 @@ using MyApp.Infrastructure.Data.Mapping;
 
 namespace MyApp.Infrastructure.Data
 {
-    public class AppDbContext : DbContext
+    internal class AppDbContext : DbContext
     {
 
         public DbSet<Character> Characters { get; set; }

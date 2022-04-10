@@ -1,10 +1,9 @@
-using Microsoft.EntityFrameworkCore;
 using MyApp.Domain;
 using MyApp.Infrastructure.Data;
 
 namespace MyApp.Infrastructure
 {
-    public class UnitOfWork : IUnitOfWork
+    internal class UnitOfWork : IUnitOfWork
     {
         private readonly AppDbContext _context;
 

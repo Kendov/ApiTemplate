@@ -5,7 +5,7 @@ using MyApp.Domain.Items;
 
 namespace MyApp.Infrastructure.Data.Mapping
 {
-    public class CharacterMapping : IEntityTypeConfiguration<Character>
+    internal class CharacterMapping : IEntityTypeConfiguration<Character>
     {
         public void Configure(EntityTypeBuilder<Character> builder)
         {

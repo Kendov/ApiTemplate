@@ -4,7 +4,7 @@ using MyApp.Domain.Items;
 
 namespace MyApp.Infrastructure.Data.Mapping
 {
-    public class ItemMapping : IEntityTypeConfiguration<Item>
+    internal class ItemMapping : IEntityTypeConfiguration<Item>
     {
         public void Configure(EntityTypeBuilder<Item> builder)
         {

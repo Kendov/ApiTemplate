@@ -5,7 +5,7 @@ using MyApp.Infrastructure.Data;
 
 namespace MyApp.Infrastructure.Repositories
 {
-    public class CharactersRepository : RepositoryBase<Character>, ICharactersRepository
+    internal class CharactersRepository : RepositoryBase<Character>, ICharactersRepository
     {
         public CharactersRepository(AppDbContext context) : base(context)
         {
