@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using MyApp.Domain.Characters;
-using MyApp.Domain.Items;
+using MyApp.Domain.Games;
 using MyApp.Infrastructure.Data.Mapping;
 
 namespace MyApp.Infrastructure.Data
@@ -8,8 +7,7 @@ namespace MyApp.Infrastructure.Data
     internal class AppDbContext : DbContext
     {
 
-        public DbSet<Character> Characters { get; set; }
-        public DbSet<Item> Items { get; set; }
+        public DbSet<Game> Games { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -19,8 +17,7 @@ namespace MyApp.Infrastructure.Data
         {
             modelBuilder.UseIdentityColumns();
 
-            modelBuilder.Entity<Character>(new CharacterMapping().Configure);
-            modelBuilder.Entity<Item>(new ItemMapping().Configure);
+            modelBuilder.Entity<Game>(new GameMapping().Configure);
         }
     }
 }

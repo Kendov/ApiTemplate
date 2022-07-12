@@ -1,16 +1,13 @@
 using System.Threading.Tasks;
 using HotChocolate;
-using MyApp.Domain.Characters;
 
 namespace MyApp.Infrastructure.GraphQL
 {
     internal class Mutation
     {
-
-        // public Task<Character> CreateCharacter([Service]ICharacterRepository characterRepository, Character character)
+        // public Task<Game> CreateGame([Service]IGameRepository gameRepository, Game game)
         // {
-        //     return Task.FromResult(characterRepository.Insert(character));
+        //     return Task.FromResult(gameRepository.Insert(game));
         // }
-
     }
 }

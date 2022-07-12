@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using MyApp.Domain;
 using MyApp.Infrastructure.Data;
 
@@ -12,9 +13,9 @@ namespace MyApp.Infrastructure
             _context = context;
         }
 
-        public void Commit()
+        public Task<int> CommitAsync()
         {
-            _context.SaveChanges();
+            return _context.SaveChangesAsync();
         }
 
         public void RollBack()

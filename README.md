@@ -8,17 +8,18 @@
 - Application
 - Domain
 
+![ArchitectureExample](resources%5Cddd-architecture.jpg)
 ## **Api**
 
 Api is the presentation layer.
 
 ## **CrossCutting**
 
-CrossCutting is a layer that can be accessed by any part of the project. Here is defined Helper classes, Extension methods, authentication context ...
+CrossCutting is a layer that can be accessed by any part of the project. Here is defined Helper classes, Extension methods, cache, authentication context ...
 
 ## **Infrastructure**
 
-Infrastructure includes data access implementations.
+Infrastructure includes implementations of data access and external communication.
 
 ## **Application**
 
@@ -32,17 +33,17 @@ This is where will be defined the entities and interfaces that represents the ap
 ---
 
 ## **Validation**
-The validations is defined using the [Fluent Validation](https://fluentvalidation.net/) Package
+The validations is made using the [Fluent Validation](https://fluentvalidation.net/) Package
 The project is defined with two types of validation in mind: Request Validations and business logic validations
 
 ### Request Validation
 
-This is defines what is a valid request to the API e.g. Value cannot be null, must be lass than 10, must not be empty...
+This defines what is a valid request to the API e.g. Value cannot be null, must be lass than 10, must not be empty...
 Any request that does not meet those requirements will return a ``400 BadRequest``
 
 ### Business Validations
 
-This is all validation related to business definition e.g. Date must be between certain range, Item must be unique, invalid account number... 
+This is all validation related to business definition e.g. Item must be unique, invalid account number, User does not have balance for the purchase... 
 
 BusinessValidation classes must end with ``Spec`` in their names.
 

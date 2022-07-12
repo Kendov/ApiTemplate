@@ -32,9 +32,8 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/src/MyApp.Api/MyApp.Api.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
+                "--project",
+                "${workspaceFolder}/src/MyApp.Api/MyApp.Api.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
