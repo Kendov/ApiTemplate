@@ -1,3 +1,4 @@
+using System.Reflection;
 using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -20,10 +21,9 @@ namespace MyApp.Infrastructure.Bootstrap
             .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<ApplicationEntryPoint>());
             services.AddSwaggerGen();
 
-            services.AddDbContextPool<AppDbContext>(options =>
-                options.UseNpgsql(
-                        configuration.GetConnectionString("database")
-                    ).UseSnakeCaseNamingConvention());
+            services.AddDbContextPool<AppDbContext>(options => options
+                    .UseNpgsql(configuration.GetConnectionString("database"))
+                    .UseSnakeCaseNamingConvention());
 
             // services.AddDbContext<AppDbContext>(options =>
             //     options
