@@ -1,10 +1,9 @@
 using System;
-using MediatR;
 using MyApp.Domain.Games;
 
-namespace MyApp.Application.Games.CreateGameCommand
+namespace MyApp.Application.Games.ListGamesQuery
 {
-    public record CreateGameCommand : IRequest<long>
+    public class ListGamesQueryResult
     {
         public string Name { get; set; }
         public string Description { get; set; }

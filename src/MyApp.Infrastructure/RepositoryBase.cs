@@ -1,5 +1,5 @@
 using System;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using MyApp.Domain;
 using MyApp.Domain.Common;
@@ -22,25 +22,14 @@ namespace MyApp.Infrastructure
             _dbSet = context.Set<TEntity>();
         }
 
-        public virtual IEnumerable<TEntity> Get()
+        public virtual async Task<TEntity> GetByIdAsync(long id)
         {
-            return _dbSet;
-        }
-
-        public virtual TEntity GetByID(object id)
-        {
-            return _dbSet.Find(id);
+            return await _dbSet.FindAsync(id);
         }
 
         public virtual TEntity Insert(TEntity obj)
         {
             return _dbSet.Add(obj).Entity;
-        }
-
-        public virtual void Delete(object id)
-        {
-            TEntity entityToDelete = _dbSet.Find(id);
-            Delete(entityToDelete);
         }
 
         public virtual void Delete(TEntity obj)
