@@ -4,7 +4,7 @@ using MediatR;
 using MyApp.Domain;
 using MyApp.Domain.Publishers;
 
-namespace MyApp.Application.Publishers.Commands.CreatePublisher
+namespace MyApp.Application.Publishers.CreatePublisher
 {
     public class CreatePublisherCommandHandler : IRequestHandler<CreatePublisherCommand, long>
     {

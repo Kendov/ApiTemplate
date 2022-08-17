@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace MyApp.Application.Publishers.Commands.CreatePublisher
+namespace MyApp.Application.Publishers.CreatePublisher
 {
     public class CreatePublisherCommand : IRequest<long>
     {

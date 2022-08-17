@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace MyApp.Application.Publishers.Commands.CreatePublisher
+namespace MyApp.Application.Publishers.CreatePublisher
 {
     public class CreatePublisherValidator : AbstractValidator<CreatePublisherCommand>
     {

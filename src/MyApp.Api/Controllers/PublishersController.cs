@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using MyApp.Application.Publishers.Commands.CreatePublisher;
+using MyApp.Application.Publishers.CreatePublisher;
 
 namespace MyApp.Api.Controllers
 {
