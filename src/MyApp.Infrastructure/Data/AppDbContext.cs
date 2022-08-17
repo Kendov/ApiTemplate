@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using MyApp.Domain.Common;
 using MyApp.Domain.Games;
+using MyApp.Domain.Publishers;
 using MyApp.Infrastructure.Data.Mapping;
 
 namespace MyApp.Infrastructure.Data
@@ -13,6 +14,7 @@ namespace MyApp.Infrastructure.Data
     {
 
         public DbSet<Game> Games { get; set; }
+        public DbSet<Publisher> Publishers { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -23,6 +25,7 @@ namespace MyApp.Infrastructure.Data
             modelBuilder.UseIdentityColumns();
 
             modelBuilder.Entity<Game>(new GameMapping().Configure);
+            modelBuilder.Entity<Publisher>(new PublisherMapping().Configure);
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

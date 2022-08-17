@@ -63,6 +63,12 @@ Example of router names to follow
 
 For more info check this useful website https://restfulapi.net/resource-naming/
 
+## Migrations
+
+Make sure you have dotnet ef tool installed running the following command
+> dotnet tool install --global dotnet-ef
+
+> dotnet ef migrations add <migration-name> --startup-project .\..\MyApp.Api
 
 ## Todo
 - [ ] Unit tests
