@@ -1,6 +1,6 @@
 using MyApp.Domain.Common;
 
-namespace MyApp.Domain.Publisher;
+namespace MyApp.Domain.Publishers;
 
 public record Publisher : AuditableEntity
 {
