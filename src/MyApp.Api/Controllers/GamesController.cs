@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using MyApp.Application.Games.CreateGameCommand;
 using MyApp.Application.Games.GetGamesByIdQuery;
 using MyApp.Application.Games.ListGamesQuery;
+using MyApp.Application.Games.UpdateGameCommand;
 
 namespace MyApp.Api.Controllers
 {
@@ -40,6 +41,14 @@ namespace MyApp.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(CreateGameCommand command)
         {
+            var result = await _mediator.Send(command);
+            return CreatedAtAction(nameof(GetById), new { id = result }, result);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, [FromBody] UpdateGameCommand command)
+        {
+            command.Id = id;
             var result = await _mediator.Send(command);
             return Ok(result);
         }

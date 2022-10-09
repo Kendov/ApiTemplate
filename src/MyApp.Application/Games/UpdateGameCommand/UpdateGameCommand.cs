@@ -1,14 +1,12 @@
 using System;
-using MyApp.Domain.Common;
+using MediatR;
+using MyApp.Domain.Games;
 
-namespace MyApp.Domain.Games
+namespace MyApp.Application.Games.UpdateGameCommand
 {
-    public record Game : AuditableEntity
+    public record UpdateGameCommand : IRequest<Unit>
     {
-        public const int NAME_MAX_LENGTH = 500;
-        public const int DESCRIPTION_MAX_LENGTH = 5000;
-        public const int PUBLISHER_MAX_LENGTH = 100;
-
+        public long Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public Genre Genre { get; set; }

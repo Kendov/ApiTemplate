@@ -12,11 +12,11 @@ namespace MyApp.Infrastructure.Data.Mapping
             builder.HasAuditableProperties();
 
             builder.Property(x => x.Name)
-                .HasMaxLength(500)
+                .HasMaxLength(Game.NAME_MAX_LENGTH)
                 .IsRequired();
 
             builder.Property(x => x.Description)
-                .HasMaxLength(5000)
+                .HasMaxLength(Game.DESCRIPTION_MAX_LENGTH)
                 .IsRequired();
 
             builder.Property(x => x.Genre)

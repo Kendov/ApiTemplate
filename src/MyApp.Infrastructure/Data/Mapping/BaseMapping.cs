@@ -25,11 +25,9 @@ namespace MyApp.Infrastructure.Data.Mapping
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.CreatedAt)
-                .IsRequired()
-                .ValueGeneratedOnAdd();
+                .IsRequired();
 
-            builder.Property(x => x.UpdatedAt)
-                .ValueGeneratedOnUpdate();
+            builder.Property(x => x.UpdatedAt);
 
             builder.Property(x => x.IsActive)
                 .IsRequired();

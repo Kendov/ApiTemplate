@@ -1,12 +1,11 @@
-
 using FluentValidation;
 using MyApp.Domain.Games;
 
-namespace MyApp.Application.Games.CreateGameCommand
+namespace MyApp.Application.Games.UpdateGameCommand
 {
-    public class CreateGameCommandValidator : AbstractValidator<CreateGameCommand>
+    public class UpdateGameCommandValidator : AbstractValidator<UpdateGameCommand>
     {
-        public CreateGameCommandValidator()
+        public UpdateGameCommandValidator()
         {
             RuleFor(x => x.Description)
                 .NotEmpty()
