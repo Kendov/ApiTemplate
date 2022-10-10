@@ -1,7 +1,7 @@
 using FluentValidation;
 using MyApp.Domain.Games;
 
-namespace MyApp.Application.Games.UpdateGameCommand
+namespace MyApp.Application.Games.UpdateGame
 {
     public class UpdateGameCommandValidator : AbstractValidator<UpdateGameCommand>
     {

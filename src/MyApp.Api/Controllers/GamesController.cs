@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using MyApp.Application.Games.CreateGameCommand;
-using MyApp.Application.Games.GetGamesByIdQuery;
-using MyApp.Application.Games.ListGamesQuery;
-using MyApp.Application.Games.UpdateGameCommand;
+using MyApp.Application.Games.CreateGame;
+using MyApp.Application.Games.GetGamesById;
+using MyApp.Application.Games.ListGames;
+using MyApp.Application.Games.UpdateGame;
 
 namespace MyApp.Api.Controllers
 {

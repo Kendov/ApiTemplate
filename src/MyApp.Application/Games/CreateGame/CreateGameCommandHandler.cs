@@ -4,7 +4,7 @@ using MediatR;
 using MyApp.Domain;
 using MyApp.Domain.Games;
 
-namespace MyApp.Application.Games.CreateGameCommand
+namespace MyApp.Application.Games.CreateGame
 {
     public class CreateGameCommandHandler : IRequestHandler<CreateGameCommand, long>
     {

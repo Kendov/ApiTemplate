@@ -2,7 +2,7 @@
 using FluentValidation;
 using MyApp.Domain.Games;
 
-namespace MyApp.Application.Games.CreateGameCommand
+namespace MyApp.Application.Games.CreateGame
 {
     public class CreateGameCommandValidator : AbstractValidator<CreateGameCommand>
     {

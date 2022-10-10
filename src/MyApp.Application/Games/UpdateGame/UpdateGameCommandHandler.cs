@@ -4,7 +4,7 @@ using MediatR;
 using MyApp.Domain;
 using MyApp.Domain.Games;
 
-namespace MyApp.Application.Games.UpdateGameCommand
+namespace MyApp.Application.Games.UpdateGame
 {
     public class UpdateGameCommandHandler : IRequestHandler<UpdateGameCommand, Unit>
     {

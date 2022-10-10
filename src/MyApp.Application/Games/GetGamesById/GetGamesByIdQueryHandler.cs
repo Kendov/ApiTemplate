@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using MediatR;
 using MyApp.Domain.Games;
 
-namespace MyApp.Application.Games.GetGamesByIdQuery
+namespace MyApp.Application.Games.GetGamesById
 {
     public class GetGamesByIdQueryHandler : IRequestHandler<GetGamesByIdQuery, GetGamesByIdQueryResult>
     {

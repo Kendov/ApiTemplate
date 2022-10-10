@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using MediatR;
 using MyApp.Domain.Games;
 
-namespace MyApp.Application.Games.ListGamesQuery
+namespace MyApp.Application.Games.ListGames
 {
     public class ListGamesQueryHandler : IRequestHandler<ListGamesQuery, IEnumerable<ListGamesQueryResult>>
     {

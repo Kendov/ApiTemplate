@@ -1,7 +1,7 @@
 using System;
 using MyApp.Domain.Games;
 
-namespace MyApp.Application.Games.GetGamesByIdQuery
+namespace MyApp.Application.Games.GetGamesById
 {
     public record GetGamesByIdQueryResult
     {

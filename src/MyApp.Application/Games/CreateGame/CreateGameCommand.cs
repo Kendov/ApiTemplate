@@ -2,11 +2,10 @@ using System;
 using MediatR;
 using MyApp.Domain.Games;
 
-namespace MyApp.Application.Games.UpdateGameCommand
+namespace MyApp.Application.Games.CreateGame
 {
-    public record UpdateGameCommand : IRequest<Unit>
+    public record CreateGameCommand : IRequest<long>
     {
-        public long Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public Genre Genre { get; set; }

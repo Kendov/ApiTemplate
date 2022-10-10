@@ -1,7 +1,7 @@
 
 using MediatR;
 
-namespace MyApp.Application.Games.GetGamesByIdQuery
+namespace MyApp.Application.Games.GetGamesById
 {
     public record GetGamesByIdQuery : IRequest<GetGamesByIdQueryResult>
     {
