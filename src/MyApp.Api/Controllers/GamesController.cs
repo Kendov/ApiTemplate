@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using MyApp.Application.Games.CreateGame;
+using MyApp.Application.Games.DeleteGame;
 using MyApp.Application.Games.GetGamesById;
 using MyApp.Application.Games.ListGames;
 using MyApp.Application.Games.UpdateGame;
@@ -51,6 +52,14 @@ namespace MyApp.Api.Controllers
             command.Id = id;
             var result = await _mediator.Send(command);
             return Ok(result);
+        }
+
+        [HttpDelete("{Id}")]
+        public async Task<IActionResult> Delete([FromRoute] DeleteGameCommand command)
+        {
+            var result = await _mediator.Send(command);
+
+            return result ? Ok(result) : NotFound();
         }
     }
 }
